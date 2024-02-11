@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: dnd
+      MYSQL_DATABASE: dnd
+      MYSQL_USER: dnd
+      MYSQL_PASSWORD: dnd
+    ports:
+      - "8003:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: always
+
+  # phpmyadmin
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_USER: dnd
+      MYSQL_ROOT_PASSWORD: dnd
+
+
+volumes:
+  mysql-data:
