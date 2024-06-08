@@ -2,8 +2,10 @@ name: app
 
 type: php:8.2
 
-dependencies:
+relationships:
     mysql:
+
+dependencies:
     php:
         composer/composer: "^2"
 
