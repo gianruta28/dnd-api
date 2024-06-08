@@ -3,6 +3,7 @@ name: app
 type: php:8.2
 
 dependencies:
+    mysql:
     php:
         composer/composer: "^2"
 
