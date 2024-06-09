@@ -46,6 +46,8 @@ hooks:
     build: |
         set -x -e
 
+        echo $FOO
+        echo $FOO_VAR
         echo "Building .env file"
         echo "APP_ENV=$(platform environment:variable:get env:APP_ENV --pipe)" > .env
         echo "APP_SECRET=$(platform environment:variable:get env:APP_SECRET --pipe)" >> .env
