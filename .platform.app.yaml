@@ -46,11 +46,21 @@ hooks:
     build: |
         set -x -e
 
-        curl -fs https://get.symfony.com/cloud/configurator | bash
-        NODE_VERSION=18 symfony-build
         echo  $TEST
         echo  ${TEST}
-        echo  "aaaaa"
+        echo "APP_ENV=${APP_ENV}" > .env
+        echo "APP_SECRET=${APP_SECRET}" > .env
+        echo "CORS_ALLOW_ORIGIN=${CORS_ALLOW_ORIGIN}" > .env
+        echo "JWT_PASSPHRASE=${JWT_PASSPHRASE}" > .env
+        echo "JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}" > .env
+        echo "JWT_SECRET_KEY=${JWT_SECRET_KEY}" > .env
+        echo "PHP_VERSION=${PHP_VERSION}" > .env
+        echo  .env
+        curl -fs https://get.symfony.com/cloud/configurator | bash
+        NODE_VERSION=18 symfony-build
+        echo  .env
+
+
 
 
 crons:
