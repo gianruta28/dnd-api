@@ -49,7 +49,9 @@ hooks:
         echo $FOO
         echo $FOO_VAR
         echo "Building .env file"
-        echo "APP_ENV=$(platform environment:variable:get env:APP_ENV --pipe)" > .env
+        echo $APP_ENV
+        echo "APP_ENV=${APP_ENV}" > .env
+        echo "APP_ENV={$APP_ENV}" > .env
         echo "APP_SECRET=$(platform environment:variable:get env:APP_SECRET --pipe)" >> .env
         echo "CORS_ALLOW_ORIGIN=$(platform environment:variable:get env:CORS_ALLOW_ORIGIN --pipe)" >> .env
         echo "JWT_PASSPHRASE=$(platform environment:variable:get env:JWT_PASSPHRASE --pipe)" >> .env
@@ -60,6 +62,7 @@ hooks:
         curl -fs https://get.symfony.com/cloud/configurator | bash
         NODE_VERSION=18 symfony-build
         echo  .env
+        
 
 
 
