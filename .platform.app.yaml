@@ -51,13 +51,12 @@ hooks:
         echo "Building .env file"
         echo $APP_ENV
         echo "APP_ENV=${APP_ENV}" > .env
-        echo "APP_ENV={$APP_ENV}" > .env
-        echo "APP_SECRET=$(platform environment:variable:get env:APP_SECRET --pipe)" >> .env
-        echo "CORS_ALLOW_ORIGIN=$(platform environment:variable:get env:CORS_ALLOW_ORIGIN --pipe)" >> .env
-        echo "JWT_PASSPHRASE=$(platform environment:variable:get env:JWT_PASSPHRASE --pipe)" >> .env
-        echo "JWT_PUBLIC_KEY=$(platform environment:variable:get env:JWT_PUBLIC_KEY --pipe)" >> .env
-        echo "JWT_SECRET_KEY=$(platform environment:variable:get env:JWT_SECRET_KEY --pipe)" >> .env
-        echo "DATABASE_URL=$(platform environment:variable:get env:DATABASE_URL --pipe)" >> .env
+        echo "APP_SECRET=${APP_SECRET}" > .env
+        echo "CORS_ALLOW_ORIGIN=${CORS_ALLOW_ORIGIN}" > .env
+        echo "JWT_PASSPHRASE=${JWT_PASSPHRASE}" > .env
+        echo "JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}" > .env
+        echo "JWT_SECRET_KEY=${JWT_SECRET_KEY}" > .env
+        echo "DATABASE_URL=${DATABASE_URL}" > .env
         echo "Completed building .env file"
         curl -fs https://get.symfony.com/cloud/configurator | bash
         NODE_VERSION=18 symfony-build
