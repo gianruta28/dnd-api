@@ -3,7 +3,9 @@ name: app
 type: php:8.2
 
 relationships:
-    mysql:
+    database:
+        service: mysql
+        endpoint: mysql
 
 dependencies:
     php:
@@ -20,7 +22,7 @@ runtime:
         - xsl
         
 
-variables:
+
     php:
         opcache.preload: config/preload.php
 build:
