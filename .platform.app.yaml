@@ -47,7 +47,7 @@ hooks:
         set -x -e
 
         curl -fs https://get.symfony.com/cloud/configurator | bash
-        
+        echo  "${TEST}"
         NODE_VERSION=18 symfony-build
 
 
